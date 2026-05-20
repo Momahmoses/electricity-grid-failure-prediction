@@ -1,63 +1,79 @@
 # Electricity Grid Failure & Outage Prediction
 
-A GIS + ML system for predicting power grid failure points across Nigerian Distribution Companies (DisCos) using infrastructure age, weather data, load levels, and maintenance history — enabling proactive intervention to reduce outage downtime.
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Overview
+GIS + ML system predicting power grid failure points across Nigerian Distribution Companies (DisCos) using infrastructure age, weather exposure, load levels, and maintenance history — enabling proactive intervention to reduce outage downtime.
 
-Trains a Random Forest classifier on grid segment data to:
-- Predict failure probability per line/transformer segment
-- Rank segments by maintenance priority
-- Visualize risk distribution per DisCo service territory
-- Generate actionable maintenance priority reports
+---
+
+## Problem Statement
+
+Nigeria's electricity grid suffers chronic outages averaging 12–20 hours per day. DisCos react to failures instead of preventing them. This system predicts failure probability per grid segment, enabling targeted preventive maintenance.
+
+---
 
 ## Features
 
-- **Risk Scoring**: 12 features including line age, load factor, weather, vegetation encroachment
-- **DisCo-level Analysis**: Risk breakdown for Eko, Ikeja, Abuja, Kano, Enugu, Port Harcourt DisCos
-- **Interactive Heatmap**: Folium map showing failure risk intensity
-- **Priority Report**: Top 20 highest-risk segments for immediate maintenance
+| Feature | Description |
+|---------|-------------|
+| Failure Probability Scoring | Random Forest on 12 asset condition features |
+| Maintenance Priority Ranking | Top 20 highest-risk segments for immediate action |
+| DisCo-Level Risk Breakdown | Coverage for Eko, Ikeja, Abuja, Kano, Enugu, Port Harcourt DisCos |
+| Interactive Risk Heatmap | Folium map showing failure risk intensity across service areas |
+| Priority Report Generation | Exportable CSV of maintenance work orders |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Machine Learning | Random Forest, scikit-learn |
+| Geospatial | GeoPandas, Folium |
+| Data | pandas, NumPy |
+| Visualisation | Matplotlib, Seaborn, Plotly |
+
+---
 
 ## Project Structure
 
 ```
 electricity-grid-failure-prediction/
 ├── src/
-│   ├── data_ingestion.py    # Grid data generation
-│   ├── model.py             # RF training & ROC evaluation
-│   └── visualization.py     # Risk maps & DisCo summaries
-├── data/sample/
-├── outputs/
-├── config.py
-├── main.py
+│   ├── data_loader.py     # Grid asset and weather data ingestion
+│   ├── model.py           # Random Forest training and prediction pipeline
+│   └── visualize.py       # Failure heatmap and risk distribution charts
+├── data/raw/              # Grid topology, outage logs, weather data
+├── models/                # Saved model artifacts
+├── config.py              # Model parameters, risk thresholds
+├── main.py                # Pipeline entry point
 └── requirements.txt
 ```
 
-## Installation & Usage
+---
+
+## Quick Start
 
 ```bash
+git clone https://github.com/Momahmoses/electricity-grid-failure-prediction.git
+cd electricity-grid-failure-prediction
 pip install -r requirements.txt
 python main.py
 ```
 
-## Target DisCos
+---
 
-| DisCo | City | Coverage |
-|-------|------|---------|
-| Eko | Lagos | Island & Mainland South |
-| Ikeja | Lagos | Mainland North |
-| Abuja | FCT | Federal Capital Territory |
-| Kano | Kano | Northwest Zone |
-| Enugu | Enugu | Southeast Zone |
-| Port Harcourt | Rivers | South-South Zone |
+## Data Sources
 
-## Data Sources (Production)
+- NERC/TCN grid topology and fault history
+- DisCo asset registers (transformer age, capacity, load factor)
+- NIMET weather data (temperature, humidity, lightning)
+- FERMA road access data for maintenance logistics
 
-- Grid topology: TCN/NERC grid maps
-- Weather: NIMET historical data, ERA5
-- Maintenance logs: DisCo SCADA systems
-- Outage records: NERC outage reports
+---
 
 ## Author
 
-**MOMAH MOSES .C.**  
-Data Scientist & ML Engineer | [GitHub](https://github.com/Momahmoses)
+**Momah Moses** — Geospatial AI Engineer & Data Scientist
+[GitHub](https://github.com/Momahmoses) · [Portfolio](https://momahmoses-ng-gis-portfolio.hf.space)
