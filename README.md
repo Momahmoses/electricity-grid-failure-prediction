@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-GIS + ML system predicting power grid failure points across Nigerian Distribution Companies (DisCos) using infrastructure age, weather exposure, load levels, and maintenance history — enabling proactive intervention to reduce outage downtime.
+GIS + ML system predicting power grid failure points across Nigerian Distribution Companies (DisCos) using infrastructure age, weather exposure, load levels, and maintenance history, enabling proactive intervention to reduce outage downtime.
 
 ---
 
@@ -75,5 +75,5 @@ python main.py
 
 ## Author
 
-**Momah Moses** — Geospatial AI Engineer & Data Scientist
+**Momah Moses**, Geospatial AI Engineer & Data Scientist
 [GitHub](https://github.com/Momahmoses) · [Portfolio](https://momahmoses-ng-gis-portfolio.hf.space)
